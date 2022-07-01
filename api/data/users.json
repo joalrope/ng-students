@@ -1,1 +1,14 @@
-[{"id":"56c31a33-9218-449f-a509-1a71ceb48137","email":"joalrope@gmail.com","password":"$2a$10$GUO3YQCOdA7yz488d7.Equ1ySf3VfH49w2PmBK9kKO1GBJPI1jRSe","role":"admin"},{"id":"732604b9-9ed7-4d65-832e-a3bb4e86c8cf","email":"joalrope@gmail.com","password":"$2a$10$w.itTgoESOxzj4uz4c4d5e2gOp9cDnoX2FEk39.VK5f0E0wPS/ZFW","role":"admin"}]
+[
+  {
+    "id": "495b44bd-001f-48fb-a0a1-c209425719f7",
+    "email": "joalrope@gmail.com",
+    "password": "$2a$10$a.cRE44ORLuJtT9q3lmsmuO0MVtM45ZuJ/60gYyXGrm59bD2cmokm",
+    "role": "admin"
+  },
+  {
+    "id": "27a5d784-8e86-49b7-aa63-e1f93c452bc1",
+    "email": "joalrope1@gmail.com",
+    "password": "$2a$10$OImehTM/yg9w5SAvU0jTPOBEEEHJNUJpw0kBkJg1wq/w4gTMMskKW",
+    "role": "admin"
+  }
+]

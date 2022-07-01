@@ -4,26 +4,53 @@ import fs from 'fs';
 import path from 'path';
 import { v4 } from 'uuid';
 
-import data from '../../data/users.json';
+//import data from '../../data/users.json';
 import { generateJWT } from '../helpers/jwt';
 import { User } from '../interfaces/user';
 
-export const getUsers = async (req: Request, res: Response) => {
-  res.status(200).send(data);
-};
+const jsonPath = path.join(__dirname, '../../data/users.json');
 
-export const createUser = async (req: Request, res: Response) => {
-  //const { email, password } = req.body;
-  const { email, password } = { email: 'joalrope@gmail.com', password: 'Cheo.-2436' };
-
-  const jsonPath = path.join(__dirname, '../../data/users.json');
-
+export const getUsers = (): User[] => {
   const usersData: string = fs.readFileSync(jsonPath, {
     encoding: 'utf8',
     flag: 'r',
   });
 
-  const users: User[] = JSON.parse(usersData);
+  return JSON.parse(usersData);
+};
+
+export const saveUsers = (user: User): boolean => {
+  let result = true;
+
+  const users: User[] = getUsers();
+
+  users.push(user);
+
+  const str = JSON.stringify(users);
+
+  fs.writeFile(jsonPath, str, (err) => {
+    if (err) {
+      result = false;
+    }
+    result = false;
+  });
+
+  return result;
+};
+
+export const createUser = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
+  const users: User[] = getUsers();
+
+  const findOne = users.filter((user) => user.email == email);
+
+  if (findOne.length != 0) {
+    return res.status(200).json({
+      ok: false,
+      message: `Ya existe un usuario con el correo: ${email}`,
+    });
+  }
 
   const newUser: User = {
     id: v4(),
@@ -36,18 +63,15 @@ export const createUser = async (req: Request, res: Response) => {
 
   newUser.password = bcrypt.hashSync(password, salt);
 
-  users.push(newUser);
+  const success: boolean = saveUsers(newUser);
 
-  const str = JSON.stringify(users);
-  fs.writeFile(jsonPath, str, (err) => {
-    if (err) {
-      return res.status(200).json({
-        ok: false,
-        message: 'Error saving new User',
-      });
-    }
-    return res.status(200).send(str);
-  });
+  if (!success) {
+    return res.status(200).json({
+      ok: false,
+      message: 'Error saving new User',
+    });
+  }
+  return res.status(200).send(newUser);
 };
 
 export const userLogin = async (req: Request, res: Response) => {
