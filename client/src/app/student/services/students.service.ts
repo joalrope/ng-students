@@ -17,4 +17,10 @@ export class StudentsService {
 
     return this.http.get<Student[]>(apiUrl);
   }
+
+  getStudent(id: number): Observable<Student> {
+    const apiUrl: string = `${this._urlBase}/student/${id}`;
+
+    return this.http.get<Student>(apiUrl);
+  }
 }

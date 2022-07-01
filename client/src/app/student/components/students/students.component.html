@@ -7,10 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let student of students; let i = index"
-      [ngStyle]="{ color: student.Color }"
-    >
+    <tr *ngFor="let student of students; let i = index" [ngStyle]="{ color: student.Color }">
       <td class="text-center" scope="row">{{ i + 1 }}</td>
       <td>{{ student.Name }}</td>
       <td class="text-center" [ngSwitch]="student.Gender">
@@ -30,15 +27,39 @@
         {{ student.Persona }}
       </td>
       <td class="text-center">
+        {{ student.Crush }}
+      </td>
+      <td class="text-center">
+        {{ student.BreastSize }}
+      </td>
+      <td class="text-center">
+        {{ student.Strength }}
+      </td>
+      <td class="text-center">
+        {{ student.Hairstyle }}
+      </td>
+      <td class="text-center">
+        {{ student.Color }}
+      </td>
+      <td class="text-center">
+        {{ student.Stockings }}
+      </td>
+      <td class="text-center">
+        {{ student.Accessory }}
+      </td>
+      <td class="text-center">
+        {{ 25.45 }}
+      </td>
+      <td class="text-center">
         <a
           class="btn btn-sm"
           [ngStyle]="{
-            'background-color': student.Color,
-            color: retornarColor()
+            color: student.Color,
+            'border-color': student.Color
           }"
-          [routerLink]="['/details']"
+          [routerLink]="['/student', student.ID]"
         >
-          Details
+          Ver...
         </a>
       </td>
     </tr>

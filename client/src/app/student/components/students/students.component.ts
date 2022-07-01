@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Student } from '../../interfaces/student';
-import { StudentsService } from '../../services/students.service';
+import { headers } from 'src/app/data/headers';
 
 @Component({
   selector: 'app-students',
@@ -8,34 +8,12 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./students.component.sass'],
 })
 export class StudentsComponent implements OnInit {
+  headers: string[] = headers;
+
+  @Input()
   students: Student[] = [];
-  headers: string[] = [
-    'ID',
-    'Active',
-    'Name',
-    'Gender',
-    'Class',
-    'Club',
-    'Persona',
-    'Crush',
-    'BreastSize',
-    'Strength',
-    'Hairstyle',
-    'Color',
-    'Stockings',
-    'Accessory',
-    'Average',
-  ];
 
-  constructor(private studentService: StudentsService) {}
+  constructor() {}
 
-  retornarColor() {
-    return '#00f';
-  }
-
-  ngOnInit(): void {
-    this.studentService.getStudents().subscribe((students) => {
-      this.students = students;
-    });
-  }
+  ngOnInit(): void {}
 }

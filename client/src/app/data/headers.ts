@@ -1,0 +1,18 @@
+export const headers: string[] = [
+  'ID',
+  'Active',
+  'Name',
+  'Gender',
+  'Class',
+  'Club',
+  'Persona',
+  'Crush',
+  'BreastSize',
+  'Strength',
+  'Hairstyle',
+  'Color',
+  'Stockings',
+  'Accessory',
+  'Average',
+  'Details',
+];

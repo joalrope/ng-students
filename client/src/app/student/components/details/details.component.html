@@ -1,1 +1,18 @@
-<p>details works!</p>
+<div class="container m-5">
+  <div class="card" style="width: 18rem">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <span> <strong> ID: </strong> </span>
+        <span> {{ student?.ID }}</span>
+      </li>
+      <li class="list-group-item">
+        <span> <strong> Name: </strong> </span>
+        <span> {{ student?.Name }}</span>
+      </li>
+      <li class="list-group-item">
+        <span> <strong> Grades: </strong> </span>
+        <span [ngStyle]="{ color: retornarColor(student.grades) }"> {{ student?.grades }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { StudentModule } from './student/student.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,

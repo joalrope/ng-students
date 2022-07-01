@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { InfoComponent } from './student/pages/info/info.component';
 import { DetailComponent } from './student/pages/detail/detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'info',
     component: InfoComponent,
   },
   {
-    path: 'details',
+    path: 'student/:id',
     component: DetailComponent,
   },
   {

@@ -12,9 +12,17 @@ import { RouterModule } from '@angular/router';
     InfoComponent,
     DetailComponent,
     StudentsComponent,
-    DetailsComponent,
+    DetailsComponent, //
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule],
-  exports: [InfoComponent, DetailComponent, StudentsComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule, //
+  ],
+  exports: [
+    InfoComponent,
+    DetailComponent,
+    StudentsComponent, //
+  ],
 })
 export class StudentModule {}
