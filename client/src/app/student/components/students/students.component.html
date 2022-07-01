@@ -30,15 +30,16 @@
         {{ student.Persona }}
       </td>
       <td class="text-center">
-        <button
+        <a
           class="btn btn-sm"
           [ngStyle]="{
             'background-color': student.Color,
             color: retornarColor()
           }"
+          [routerLink]="['/details']"
         >
           Details
-        </button>
+        </a>
       </td>
     </tr>
   </tbody>

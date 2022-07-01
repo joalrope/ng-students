@@ -4,10 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './pages/info/info.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { StudentsComponent } from './components/students/students.component';
+import { DetailsComponent } from './components/details/details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [InfoComponent, DetailComponent, StudentsComponent],
-  imports: [CommonModule, HttpClientModule],
+  declarations: [
+    InfoComponent,
+    DetailComponent,
+    StudentsComponent,
+    DetailsComponent,
+  ],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   exports: [InfoComponent, DetailComponent, StudentsComponent],
 })
 export class StudentModule {}
