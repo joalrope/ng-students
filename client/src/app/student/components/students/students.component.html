@@ -1,0 +1,45 @@
+<table class="table table-hover table-bordered w-100">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col" *ngFor="let header of headers">
+        {{ header }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let student of students; let i = index"
+      [ngStyle]="{ color: student.Color }"
+    >
+      <td class="text-center" scope="row">{{ i + 1 }}</td>
+      <td>{{ student.Name }}</td>
+      <td class="text-center" [ngSwitch]="student.Gender">
+        <span *ngSwitchCase="0">M</span>
+        <span *ngSwitchCase="1">F</span>
+      </td>
+      <td class="text-center">
+        {{ student.Color }}
+      </td>
+      <td class="text-center">
+        {{ student.Class }}
+      </td>
+      <td class="text-center">
+        {{ student.Club }}
+      </td>
+      <td class="text-center">
+        {{ student.Persona }}
+      </td>
+      <td class="text-center">
+        <button
+          class="btn btn-sm"
+          [ngStyle]="{
+            'background-color': student.Color,
+            color: retornarColor()
+          }"
+        >
+          Details
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
