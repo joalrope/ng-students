@@ -6,13 +6,15 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { StudentsComponent } from './components/students/students.component';
 import { DetailsComponent } from './components/details/details.component';
 import { RouterModule } from '@angular/router';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     InfoComponent,
     DetailComponent,
     StudentsComponent,
-    DetailsComponent, //
+    DetailsComponent,
+    PaginationComponent, //
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,11 @@ import { RouterModule } from '@angular/router';
   exports: [
     InfoComponent,
     DetailComponent,
-    StudentsComponent, //
+    DetailsComponent,
+    StudentsComponent,
+    PaginationComponent,
+
+    //
   ],
 })
 export class StudentModule {}

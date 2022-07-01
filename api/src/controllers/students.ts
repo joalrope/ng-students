@@ -3,6 +3,11 @@ import { Request, Response } from 'express';
 import data from '../../data/students.json';
 
 export const getStudents = (req: Request, res: Response) => {
+
+  const {page, limit} =req.params
+
+  console.log({page, limit})
+
   const active = data.filter((student) => student.active == true);
 
   return res.status(200).send(active);
