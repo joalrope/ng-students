@@ -10,7 +10,7 @@
     "outDir": "dist",
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "resolveJsonModule": true,
+  "esModuleInterop": true,
+  "include": ["src/**/*"]
 }

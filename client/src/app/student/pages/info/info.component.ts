@@ -13,7 +13,7 @@ export class InfoComponent implements OnInit {
   constructor(private studentService: StudentsService) {}
 
   ngOnInit(): void {
-    this.studentService.getStudents().subscribe((students) => {
+    this.studentService.getStudentsByPage('1', '5').subscribe((students) => {
       this.students = students;
     });
   }
