@@ -20,7 +20,7 @@ export const getStudentsByPage = (req: Request, res: Response) => {
 
   const students = active.slice((page_ - 1) * limit_, page_ * limit_);
 
-  return res.status(200).send(students);
+  return res.status(200).send({ records: active.length, students });
 };
 
 export const getStudent = (req: Request, res: Response) => {

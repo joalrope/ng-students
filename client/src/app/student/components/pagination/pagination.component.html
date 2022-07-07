@@ -1,1 +1,36 @@
-<p>pagination works!</p>
+<!-- paginator -->
+<nav *ngIf="pages.length > 1" class="d-flex flex-row justify-content-end">
+  <ul class="pagination justify-content-end">
+    <li id="prev" class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+      <a class="page-link" aria-label="Previous" (click)="prev()">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <ng-container *ngIf="items > 0">
+      <li class="page-item" *ngFor="let page of pages" [ngClass]="{ active: currentPage === page }">
+        <a class="page-link" (click)="to(page)">{{ page }}</a>
+      </li>
+    </ng-container>
+    <li id="next" class="page-item" [ngClass]="{ disabled: currentPage === pages.length }">
+      <a class="page-link" aria-label="Next" (click)="next()">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  <div class="dropdown">
+    <button
+      class="btn btn-outline-primary dropdown-toggle ms-3"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      items por página: {{ currentLimit }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li *ngFor="let choice of limits">
+        <a (click)="setLimit(choice)" tabindex="-1" class="dropdown-item">{{ choice }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

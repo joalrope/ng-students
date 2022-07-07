@@ -19,10 +19,11 @@ export class StudentsService {
 
     return this.http.get<Student[]>(apiUrl, { params });
   }
-  getStudentsByPage(page: string, limit: string): Observable<Student[]> {
+
+  getStudentsByPage(page: string, limit: string): Observable<{ records: number; students: Student[] }> {
     const apiUrl: string = `${this._urlBase}/student/page/${page}/limit/${limit}`;
 
-    return this.http.get<Student[]>(apiUrl);
+    return this.http.get<{ records: number; students: Student[] }>(apiUrl);
   }
 
   getStudent(id: number): Observable<Student> {

@@ -8,13 +8,7 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./info.component.sass'],
 })
 export class InfoComponent implements OnInit {
-  students: Student[] = [];
+  constructor() {}
 
-  constructor(private studentService: StudentsService) {}
-
-  ngOnInit(): void {
-    this.studentService.getStudentsByPage('1', '5').subscribe((students) => {
-      this.students = students;
-    });
-  }
+  ngOnInit(): void {}
 }
